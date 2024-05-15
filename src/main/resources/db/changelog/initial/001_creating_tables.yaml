@@ -1,0 +1,112 @@
+databaseChangeLog:
+  - changeSet:
+      id: Creating Tables
+      author: Atai
+      changes:
+        - createTable:
+            tableName: Readers
+            columns:
+              - column:
+                  name: Number
+                  type: varchar(45)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: Name
+                  type: varchar(45)
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: Author
+            columns:
+              - column:
+                  name: Id
+                  type: Long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: Name
+                  type: varchar(45)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: Surname
+                  type: varchar(45)
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: State
+            columns:
+              - column:
+                  name: Id
+                  type: Long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: State
+                  type: varchar(45)
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: Books
+            columns:
+              - column:
+                  name: Id
+                  type: Long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: Name
+                  type: varchar(45)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: releaseYear
+                  type: Integer
+                  constraints:
+                    nullable: false
+              - column:
+                  name: AuthorId
+                  type: Long
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_authorId
+                    references: Author (id)
+              - column:
+                  name: State
+                  type: Long
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_stateId
+                    references: State (id)
+
+        - createTable:
+            tableName: Journal
+            columns:
+              - column:
+                  name: Id
+                  type: Long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: ReaderPhone
+                  type: varchar(45)
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_readerPhone
+                    references: Readers (number)
+              - column:
+                  name: BooksId
+                  type: Long
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_bookId
+                    references: Books (id)
