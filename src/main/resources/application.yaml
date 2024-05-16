@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8089
 
 spring:
   datasource:
@@ -10,9 +10,9 @@ spring:
   liquibase:
     change-log: classpath:/db/changelog/master.yaml
 
-    jpa:
-      hibernate:
-        ddl-auto: validate
+  jpa:
+    hibernate:
+      ddl-auto: validate
 
 logging:
   level:

@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: Alter Books table
+      author: Atai
+      changes:
+        - addColumn:
+            tableName: Books
+            columns:
+              - column:
+                  name: Description
+                  type: varchar(255)

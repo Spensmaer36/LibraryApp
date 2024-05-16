@@ -20,8 +20,7 @@ public class Reader {
     private String name;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "reader")
-    private List<Reader> readers;
+    private List<Journal> journals;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "book")
-    private List<Book> books;
+
 }

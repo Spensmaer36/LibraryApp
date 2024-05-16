@@ -1,14 +1,11 @@
 package com.example.library.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,11 +16,16 @@ public class Book {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
-    private Integer releaseYear;
+    @Column(name = "RELEASEYEAR")
+    private LocalDate releaseYear;
+    private String description;
     @ManyToOne
-    @JoinColumn(name = "authorId")
+    @JoinColumn(name = "AUTHORID")
     private Author author;
     @ManyToOne
-    @JoinColumn(name = "stateId")
-    private State State;
+    @JoinColumn(name = "STATE")
+    private State state;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "book")
+    private List<Journal> journals;
 }
