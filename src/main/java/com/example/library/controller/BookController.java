@@ -2,15 +2,12 @@ package com.example.library.controller;
 
 import com.example.library.dto.AuthorDto;
 import com.example.library.dto.BookDto;
-import com.example.library.dto.CreateBookDto;
-import com.example.library.model.Book;
 import com.example.library.service.AuthorService;
 import com.example.library.service.BookService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -21,7 +18,7 @@ public class BookController {
     private final BookService bookService;
     private final AuthorService authorService;
 
-    @GetMapping("")
+    @GetMapping()
     public String getAllBooks(Model model) {
         model.addAttribute("books", bookService.getAllBooks());
         model.addAttribute("author", authorService);

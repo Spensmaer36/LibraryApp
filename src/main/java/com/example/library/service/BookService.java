@@ -3,7 +3,6 @@ package com.example.library.service;
 import com.example.library.dto.AuthorDto;
 import com.example.library.dto.BookDto;
 import com.example.library.model.Book;
-import com.example.library.repository.AuthorRepository;
 import com.example.library.repository.BookRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,7 +24,7 @@ public class BookService {
         books.forEach(e-> {bookDtos.add(BookDto.builder()
                         .id(e.getId())
                         .authorId(e.getAuthor().getId())
-                        .name(e.getName())
+                        .title(e.getTitle())
                         .releaseDate(e.getReleaseYear())
                         .description(e.getDescription())
                 .build());});
@@ -37,7 +36,7 @@ public class BookService {
         return BookDto.builder()
                 .id(book.getId())
                 .authorId(book.getAuthor().getId())
-                .name(book.getName())
+                .title(book.getTitle())
                 .releaseDate(book.getReleaseYear())
                 .description(book.getDescription())
                 .build();
@@ -45,8 +44,9 @@ public class BookService {
 
     public void createBook(BookDto bookDto, AuthorDto authorDto) {
         Book book = new Book();
-        book.setName(bookDto.getName());
+        book.setTitle(bookDto.getTitle());
         book.setAuthor(authorService.addAuthor(authorDto));
+        book.getAuthor().setName(authorDto.getName());
         book.setReleaseYear(bookDto.getReleaseDate());
         book.setDescription(bookDto.getDescription());
         bookRepository.save(book);

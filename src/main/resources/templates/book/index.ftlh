@@ -9,14 +9,15 @@
                 <div class="col m-2">
                     <div class="card" style="width: 18rem; min-height: 200px">
                         <div class="card-header">
-                            <h5 class="card-title">${book.name}</h5>
+                            <h5 class="card-title">${book.title}</h5>
                         </div>
                         <div class="card-body">
                             <p class="card-text"> ${book.description}</p>
                             <p class="card-text">Author: ${author.getAuthorById(book.authorId).name}</p>
+                            <p class="card-text">Release Date: ${book.releaseDate}</p>
                         </div>
                         <div class="card-footer">
-                            <p class="card-text">Release Date: ${book.releaseDate}</p>
+                            <a type="button" class="btn btn-primary" href="journal/add/${book.id}">Give it to Reader</a>
                         </div>
                     </div>
                 </div>

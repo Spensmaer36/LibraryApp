@@ -3,7 +3,7 @@
     <form action="/book/create" method="post" id = "readerForm">
         <div class="mb-3">
             <label for="name" class="form-label">Title of book</label>
-            <input type="text" class="form-control" id="name" name="name">
+            <input type="text" class="form-control" id="name" name="title">
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>
@@ -11,7 +11,7 @@
         </div>
         <div class="mb-3">
             <label for="Author" class="form-label">Author</label>
-            <input type="text" class="form-control" id="Author" name="author">
+            <input type="text" class="form-control" id="Author" name="name">
         </div>
         <div class="mb-3">
             <label for="release_year" class="form-label">Release year </label>

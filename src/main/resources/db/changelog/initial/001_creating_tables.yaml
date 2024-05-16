@@ -48,7 +48,7 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
               - column:
-                  name: Name
+                  name: Title
                   type: varchar(45)
                   constraints:
                     nullable: false

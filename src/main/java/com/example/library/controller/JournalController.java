@@ -24,4 +24,5 @@ public class JournalController {
         model.addAttribute("readers", readerService);
         return "journal/index";
     }
+
 }

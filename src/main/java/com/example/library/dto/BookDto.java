@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class BookDto {
     private Long id;
-    private String name;
+    private String title;
     private Long authorId;
     private Long stateId;
     private LocalDate releaseDate;

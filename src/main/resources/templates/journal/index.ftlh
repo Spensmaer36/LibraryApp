@@ -9,7 +9,7 @@
                     <h5 class="card-title">Record ${journal.id}</h5>
                 </div>
                 <div class="card-body">
-                    <p class="card-text"> ${books.getBookById(journal.getBookId()).name}</p>
+                    <p class="card-text"> ${books.getBookById(journal.getBookId()).title}</p>
                     <p class="card-text">Reader name: ${readers.getReaderById(journal.readerId).name}</p>
                     <p class="card-text">Reader phone: ${readers.getReaderById(journal.readerId).number}</p>
                 </div>
