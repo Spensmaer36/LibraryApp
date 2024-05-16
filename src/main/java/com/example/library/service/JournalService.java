@@ -22,7 +22,7 @@ public class JournalService {
         journals.forEach(e -> {journalDtos.add(JournalDto.builder()
                         .id(e.getId())
                         .bookId(e.getBook().getId())
-                        .phoneNumber(e.getReader().getNumber())
+                        .readerId(e.getReader().getId())
                 .build());});
         return journalDtos;
     }

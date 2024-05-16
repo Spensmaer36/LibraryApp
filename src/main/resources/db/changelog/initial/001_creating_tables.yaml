@@ -7,10 +7,15 @@ databaseChangeLog:
             tableName: Readers
             columns:
               - column:
+                  name: id
+                  type: Long
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
                   name: Number
                   type: varchar(45)
                   constraints:
-                    primaryKey: true
                     nullable: false
               - column:
                   name: Name
@@ -97,12 +102,12 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
               - column:
-                  name: ReaderPhone
-                  type: varchar(45)
+                  name: readerId
+                  type: Long
                   constraints:
                     nullable: false
                     foreignKeyName: fk_readerPhone
-                    references: Readers (number)
+                    references: Readers (id)
               - column:
                   name: BooksId
                   type: Long

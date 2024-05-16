@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ReaderDto {
+    private Long id;
     private String number;
     private String name;
 }

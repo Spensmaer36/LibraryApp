@@ -7,11 +7,22 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
 public class ReaderService {
     private final ReaderRepository readerRepository;
+
+    public ReaderDto getReaderById(Long id) {
+        Reader reader = readerRepository.findById(id).orElse(null);
+        return ReaderDto.builder()
+                .number(reader.getNumber())
+                .name(reader.getName())
+                .build();
+    }
 
     public ReaderDto getReaderByNumber(String number) {
         Reader reader = readerRepository.findByNumber(number);
@@ -19,5 +30,22 @@ public class ReaderService {
                 .number(reader.getNumber())
                 .name(reader.getName())
                 .build();
+    }
+
+    public List<ReaderDto> getAllReaders() {
+        List<Reader> readers = readerRepository.findAll();
+        List<ReaderDto> readerDtos = new ArrayList<>();
+        readers.forEach(e -> readerDtos.add(ReaderDto.builder()
+                    .number(e.getNumber())
+                    .name(e.getName())
+                    .build()));
+        return readerDtos;
+    }
+
+    public void save(ReaderDto readerDto) {
+        Reader reader = new Reader();
+        reader.setNumber(readerDto.getNumber());
+        reader.setName(readerDto.getName());
+        readerRepository.save(reader);
     }
 }

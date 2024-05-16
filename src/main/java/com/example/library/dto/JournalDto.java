@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class JournalDto {
     private Long id;
-    private String phoneNumber;
+    private Long readerId;
     private Long bookId;
 }

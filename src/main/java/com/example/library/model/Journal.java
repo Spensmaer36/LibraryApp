@@ -24,6 +24,6 @@ public class Journal {
     private Book book;
 
     @ManyToOne
-    @JoinColumn(name = "READERPHONE")
+    @JoinColumn(name = "READERID")
     private Reader reader;
 }

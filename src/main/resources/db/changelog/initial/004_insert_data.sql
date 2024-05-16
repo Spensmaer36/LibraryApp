@@ -1,6 +1,6 @@
-insert into Journal(ReaderPhone, BooksId)
-values ('+996123456789', 2),
-       ('+998987654321', 4),
-       ('+996135792468', 3),
-       ('+996123456789', 1),
-       ('+998987654321', 3)
+insert into Journal(ReaderId, BooksId)
+values (1, 2),
+       (1, 4),
+       (2, 3),
+       (2, 1),
+       (3, 3)

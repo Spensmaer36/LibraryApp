@@ -10,8 +10,8 @@
                 </div>
                 <div class="card-body">
                     <p class="card-text"> ${books.getBookById(journal.getBookId()).name}</p>
-                    <p class="card-text">Reader name: ${readers.getReaderByNumber(journal.phoneNumber).name}</p>
-                    <p class="card-text">Reader phone: ${readers.getReaderByNumber(journal.phoneNumber).number}</p>
+                    <p class="card-text">Reader name: ${readers.getReaderById(journal.readerId).name}</p>
+                    <p class="card-text">Reader phone: ${readers.getReaderById(journal.readerId).number}</p>
                 </div>
             </div>
         </div>
