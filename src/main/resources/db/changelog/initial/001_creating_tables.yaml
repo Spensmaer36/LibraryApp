@@ -37,26 +37,6 @@ databaseChangeLog:
                   type: varchar(45)
                   constraints:
                     nullable: false
-              - column:
-                  name: Surname
-                  type: varchar(45)
-                  constraints:
-                    nullable: false
-
-        - createTable:
-            tableName: State
-            columns:
-              - column:
-                  name: Id
-                  type: Long
-                  autoIncrement: true
-                  constraints:
-                    primaryKey: true
-              - column:
-                  name: State
-                  type: varchar(45)
-                  constraints:
-                    nullable: false
 
         - createTable:
             tableName: Books
@@ -84,13 +64,6 @@ databaseChangeLog:
                     nullable: false
                     foreignKeyName: fk_authorId
                     references: Author (id)
-              - column:
-                  name: State
-                  type: Long
-                  constraints:
-                    nullable: false
-                    foreignKeyName: fk_stateId
-                    references: State (id)
 
         - createTable:
             tableName: Journal

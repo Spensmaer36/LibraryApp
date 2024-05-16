@@ -5,11 +5,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
+
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class StateDto {
-    private Long id;
-    private String state;
+public class CreateBookDto {
+    private String name;
+    private LocalDate releaseDate;
+    private AuthorDto author;
+    private String description;
 }

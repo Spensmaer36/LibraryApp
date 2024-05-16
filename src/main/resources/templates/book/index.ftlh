@@ -2,6 +2,9 @@
 <@main.layout>
     <div class="container text-center">
         <div class="row">
+            <div class="center mt-3 mb-3">
+                <a type="button" class="btn btn-primary" style="padding: 10px 50px" href="book/create">Add new book</a>
+            </div>
             <#list books as book>
                 <div class="col m-2">
                     <div class="card" style="width: 18rem; min-height: 200px">

@@ -19,7 +19,13 @@ public class AuthorService {
         return AuthorDto.builder()
                 .id(author.getId())
                 .name(author.getName())
-                .surname(author.getSurname())
                 .build();
+    }
+
+    public Author addAuthor(AuthorDto authorDto) {
+        Author author = new Author();
+        author.setName(authorDto.getName());
+        authorRepository.save(author);
+        return author;
     }
 }

@@ -33,7 +33,7 @@
                         <a class="nav-link" href="/reader">Readers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/">Books</a>
+                        <a class="nav-link" href="/book">Books</a>
                     </li>
                 </ul>
                 <form class="d-flex">

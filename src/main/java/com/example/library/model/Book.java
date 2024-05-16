@@ -22,9 +22,6 @@ public class Book {
     @ManyToOne
     @JoinColumn(name = "AUTHORID")
     private Author author;
-    @ManyToOne
-    @JoinColumn(name = "STATE")
-    private State state;
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "book")
     private List<Journal> journals;
