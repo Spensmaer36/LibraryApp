@@ -17,7 +17,9 @@
                             <p class="card-text">Release Date: ${book.releaseDate}</p>
                         </div>
                         <div class="card-footer">
-                            <a type="button" class="btn btn-primary" href="journal/add/${book.id}">Give it to Reader</a>
+                            <form action="book/delete/${book.id}">
+                                <button type="submit" class="btn btn-primary">Delete</button>
+                            </form>
                         </div>
                     </div>
                 </div>

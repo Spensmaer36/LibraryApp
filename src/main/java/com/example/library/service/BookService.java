@@ -51,4 +51,8 @@ public class BookService {
         book.setDescription(bookDto.getDescription());
         bookRepository.save(book);
     }
+
+    public void deleteBookById(Long id) {
+        bookRepository.deleteById(id);
+    }
 }
