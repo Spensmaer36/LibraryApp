@@ -55,4 +55,13 @@ public class BookService {
     public void deleteBookById(Long id) {
         bookRepository.deleteById(id);
     }
+
+    public void updateBook(BookDto bookDto, AuthorDto authorDto, Long id) {
+        Book book = bookRepository.findById(id).orElse(null);
+        book.setTitle(bookDto.getTitle());
+        book.setAuthor(authorService.addAuthor(authorDto));
+        book.setReleaseYear(bookDto.getReleaseDate());
+        book.setDescription(bookDto.getDescription());
+        bookRepository.save(book);
+    }
 }

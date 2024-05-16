@@ -14,6 +14,9 @@
                         <div class="card-body">
                             <p class="card-text">Number: ${reader.number}</p>
                         </div>
+                        <div class="card-footer " style="display: flex; justify-content: space-between">
+                            <a type="button" class="btn btn-primary" href="reader/update/${reader.id}">Update</a>
+                        </div>
                     </div>
                 </div>
             </#list>

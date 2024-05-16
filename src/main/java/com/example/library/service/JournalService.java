@@ -39,4 +39,23 @@ public class JournalService {
         journalRepository.save(journal);
     }
 
+    public void deleteJournal(Long id) {
+        journalRepository.deleteById(id);
+    }
+
+    public void changeJournal(JournalDto journalDto, Long id) {
+        Journal journal = journalRepository.findById(id).orElseThrow(null);
+        journal.setBook(bookRepository.findById(journalDto.getBookId()).orElseThrow(null));
+        journal.setReader(readerRepository.findById(journalDto.getReaderId()).orElseThrow(null));
+        journalRepository.save(journal);
+    }
+
+    public JournalDto getById(Long id) {
+        Journal journal = journalRepository.findById(id).orElseThrow(null);
+        return JournalDto.builder()
+                .id(journal.getId())
+                .bookId(journal.getBook().getId())
+                .readerId(journal.getReader().getId())
+                .build();
+    }
 }

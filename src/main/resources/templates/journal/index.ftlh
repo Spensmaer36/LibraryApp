@@ -16,6 +16,12 @@
                     <p class="card-text">Reader name: ${readers.getReaderById(journal.readerId).name}</p>
                     <p class="card-text">Reader phone: ${readers.getReaderById(journal.readerId).number}</p>
                 </div>
+                <div class="card-footer " style="display: flex; justify-content: space-between">
+                    <form action="journal/delete/${journal.id}">
+                        <button type="submit" class="btn btn-primary">Delete</button>
+                    </form>
+                    <a type="button" class="btn btn-primary" href="journal/update/${journal.id}">Update</a>
+                </div>
             </div>
         </div>
     </#list>

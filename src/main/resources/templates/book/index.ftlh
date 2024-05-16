@@ -16,10 +16,11 @@
                             <p class="card-text">Author: ${author.getAuthorById(book.authorId).name}</p>
                             <p class="card-text">Release Date: ${book.releaseDate}</p>
                         </div>
-                        <div class="card-footer">
+                        <div class="card-footer " style="display: flex; justify-content: space-between">
                             <form action="book/delete/${book.id}">
                                 <button type="submit" class="btn btn-primary">Delete</button>
                             </form>
+                            <a type="button" class="btn btn-primary" href="book/update/${book.id}">Update</a>
                         </div>
                     </div>
                 </div>

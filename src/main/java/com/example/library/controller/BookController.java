@@ -42,4 +42,16 @@ public class BookController {
         bookService.deleteBookById(id);
         return "redirect:/book";
     }
+
+    @GetMapping("update/{id}")
+    public String update(Model model,@PathVariable Long id) {
+        model.addAttribute("book", bookService.getBookById(id));
+        return "book/update";
+    }
+
+    @PostMapping("update/{id}")
+    public String update(@PathVariable Long id,BookDto bookDto, AuthorDto authorDto ) {
+        bookService.updateBook(bookDto,authorDto, id);
+        return "redirect:/book";
+    }
 }

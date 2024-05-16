@@ -19,6 +19,7 @@ public class ReaderService {
     public ReaderDto getReaderById(Long id) {
         Reader reader = readerRepository.findById(id).orElse(null);
         return ReaderDto.builder()
+                .id(reader.getId())
                 .number(reader.getNumber())
                 .name(reader.getName())
                 .build();
@@ -45,6 +46,17 @@ public class ReaderService {
 
     public void save(ReaderDto readerDto) {
         Reader reader = new Reader();
+        reader.setNumber(readerDto.getNumber());
+        reader.setName(readerDto.getName());
+        readerRepository.save(reader);
+    }
+
+    public void delete(Long id) {
+        readerRepository.deleteById(id);
+    }
+
+    public void changeReader(ReaderDto readerDto, Long id) {
+        Reader reader = readerRepository.findById(id).orElse(null);
         reader.setNumber(readerDto.getNumber());
         reader.setName(readerDto.getName());
         readerRepository.save(reader);
