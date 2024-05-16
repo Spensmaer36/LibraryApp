@@ -1,6 +1,9 @@
 <#import "../layout.ftlh" as main>
 <@main.layout>
 <div class="container text-center">
+    <div class="center mt-3 mb-3">
+        <a type="button" class="btn btn-primary" style="padding: 10px 50px" href="journal/add">Add new record</a>
+    </div>
     <div class="row">
         <#list journals as journal>
         <div class="col m-2">

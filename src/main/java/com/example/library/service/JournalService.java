@@ -32,10 +32,11 @@ public class JournalService {
         return journalDtos;
     }
 
-    public void addJournal(JournalDto journalDto, Long bookId, String num) {
+    public void addJournal(JournalDto journalDto) {
         Journal journal = new Journal();
-        journal.setBook(bookRepository.findById(bookId).orElse(null));
-        journal.setReader(readerRepository.findByNumber(num));
+        journal.setBook(bookRepository.findById(journalDto.getBookId()).orElseThrow(null));
+        journal.setReader(readerRepository.findById(journalDto.getReaderId()).orElseThrow(null));
+        journalRepository.save(journal);
     }
 
 }

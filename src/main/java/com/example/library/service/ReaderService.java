@@ -36,6 +36,7 @@ public class ReaderService {
         List<Reader> readers = readerRepository.findAll();
         List<ReaderDto> readerDtos = new ArrayList<>();
         readers.forEach(e -> readerDtos.add(ReaderDto.builder()
+                        .id(e.getId())
                     .number(e.getNumber())
                     .name(e.getName())
                     .build()));
