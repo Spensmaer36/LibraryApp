@@ -17,7 +17,7 @@ public class SearchService {
     private final BookRepository bookRepository;
 
     public List<BookDto> search(String search) {
-        List<Book> books = bookRepository.findByTitleContainingIgnoreCase(search);
+        List<Book> books = bookRepository.findByTitleContainingIgnoreCaseOrAuthorNameContainingIgnoreCase(search, search);
         List<BookDto> bookDtos = new ArrayList<>();
         books.forEach(e-> {bookDtos.add(BookDto.builder()
                 .id(e.getId())
@@ -28,4 +28,6 @@ public class SearchService {
                 .build());});
         return bookDtos;
     }
+
+
 }

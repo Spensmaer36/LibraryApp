@@ -45,8 +45,12 @@ public class BookService {
     public void createBook(BookDto bookDto, AuthorDto authorDto) {
         Book book = new Book();
         book.setTitle(bookDto.getTitle());
-        book.setAuthor(authorService.addAuthor(authorDto));
-        book.getAuthor().setName(authorDto.getName());
+        if (authorService.checkAuthor(authorDto) == null) {
+            book.setAuthor(authorService.addAuthor(authorDto));
+        }else {
+            book.setAuthor(authorService.findAuthorByName(authorDto.getName()));
+        }
+//        book.getAuthor().setName(authorDto.getName());
         book.setReleaseYear(bookDto.getReleaseDate());
         book.setDescription(bookDto.getDescription());
         bookRepository.save(book);

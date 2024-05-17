@@ -2,7 +2,7 @@
 <@main.layout>
     <h1>Search Books</h1>
     <form action="/search" method="get">
-        <input type="text" name="keyword" value="${keyword?if_exists}" placeholder="Enter book title"/>
+        <input type="text" name="keyword" value="${keyword?if_exists}" placeholder="Enter book title or author name"/>
         <button type="submit">Search</button>
     </form>
 
@@ -16,12 +16,9 @@
                             <h5 class="card-title">${book.title}</h5>
                         </div>
                         <div class="card-body">
-                            <p class="card-text"> ${book.description}</p>
-                            <p class="card-text">Author: ${author.getAuthorById(book.authorId).name}</p>
+                            <p class="card-text">${book.description}</p>
+                            <p class="card-text">Author: ${book.author.name}</p>
                             <p class="card-text">Release Date: ${book.releaseDate}</p>
-                        </div>
-                        <div class="card-footer">
-                            <a type="button" class="btn btn-primary" href="journal/add/${book.id}">Give it to Reader</a>
                         </div>
                     </div>
                 </div>

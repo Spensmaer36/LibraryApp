@@ -28,4 +28,20 @@ public class AuthorService {
         authorRepository.save(author);
         return author;
     }
+
+    public Author findAuthorByName(String name) {
+        return authorRepository.findByNameContainingIgnoreCase(name);
+    }
+
+    public AuthorDto checkAuthor(AuthorDto authorDto) {
+        if(authorRepository.findByNameContainingIgnoreCase(authorDto.getName()) == null){
+            return null;
+        }else {
+            Author author = authorRepository.findByNameContainingIgnoreCase(authorDto.getName());
+            return AuthorDto.builder()
+                    .id(author.getId())
+                    .name(author.getName())
+                    .build();
+        }
+    }
 }
